@@ -13,7 +13,7 @@ log:i('Initializing MCP SSE client for real-time project management')
 
 local MCPClientSSE = {
     -- Configuration
-    serverUrl = os.getenv("MCP_SERVER_URL"),
+    serverUrl = nil,
     timeout = 30,                            -- Extended timeout for SSE connections
 
     -- SSE Connection state
@@ -47,27 +47,17 @@ function MCPClientSSE.init(config)
     if not log then log = hs.logger.new('MCPClientSSE') end
     log:d('Initializing MCP SSE client with config')
     config = config or {}
-
-    if config.serverUrl then
-        MCPClientSSE.serverUrl = config.serverUrl
-    end
-
-    if config.timeout then
-        MCPClientSSE.timeout = config.timeout
-    end
-
+    MCPClientSSE.serverUrl = config.serverUrl or "http://localhost:8000"
+    MCPClientSSE.timeout = config.timeout or 30
     if config.onProjectUpdate then
         MCPClientSSE.onProjectUpdate = config.onProjectUpdate
     end
-
     if config.onTodoUpdate then
         MCPClientSSE.onTodoUpdate = config.onTodoUpdate
     end
-
     if config.onConnectionStatus then
         MCPClientSSE.onConnectionStatus = config.onConnectionStatus
     end
-
     log:i('MCP SSE client initialized with server: ' .. MCPClientSSE.serverUrl)
     return true
 end
