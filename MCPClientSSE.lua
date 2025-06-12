@@ -1,8 +1,7 @@
 -- MCPClientSSE.lua - Server-Sent Events client for communicating with MCP servers
 -- Provides real-time streaming updates from Omnispindle MCP server
 
-local HyperLogger = require('HyperLogger')
-local log = HyperLogger.new()
+local log = nil
 
 -- Check if module is already initialized
 if _G.MCPClientSSE then
@@ -40,8 +39,12 @@ local MCPClientSSE = {
     onConnectionStatus = nil
 }
 
+function MCPClientSSE.setLogger(customLogger)
+    log = customLogger or hs.logger.new('MCPClientSSE')
+end
 -- Initialize SSE client with configuration
 function MCPClientSSE.init(config)
+    if not log then log = hs.logger.new('MCPClientSSE') end
     log:d('Initializing MCP SSE client with config')
     config = config or {}
 

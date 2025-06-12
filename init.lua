@@ -27,6 +27,35 @@ obj.isInitialized = false
 obj.mcpClient = nil
 obj.clientType = nil
 
+-- Helper to load config from hs.settings or .secrets
+local function loadConfig()
+    local config = {}
+    -- Try hs.settings first
+    config.serverUrl = hs.settings.get("MCP_SERVER_URL")
+    config.timeout = tonumber(hs.settings.get("MCP_TIMEOUT"))
+    config.clientMode = hs.settings.get("MCP_CLIENT_MODE")
+    -- Fallback: parse ~/.hammerspoon/.secrets if needed
+    if not config.serverUrl or not config.clientMode then
+        local secretsPath = os.getenv("HOME") .. "/.hammerspoon/.secrets"
+        local f = io.open(secretsPath, "r")
+        if f then
+            for line in f:lines() do
+                local k, v = line:match("^([A-Z0-9_]+)%s*=%s*(.-)%s*$")
+                if k and v then
+                    if k == "MCP_SERVER_URL" then config.serverUrl = v end
+                    if k == "MCP_TIMEOUT" then config.timeout = tonumber(v) end
+                    if k == "MCP_CLIENT_MODE" then config.clientMode = v end
+                end
+            end
+            f:close()
+        end
+    end
+    -- Defaults
+    if not config.serverUrl then config.serverUrl = "http://localhost:8000" end
+    if not config.timeout then config.timeout = 30 end
+    if not config.clientMode then config.clientMode = "sse" end
+    return config
+end
 --- OmniLadle:init()
 --- Method
 --- Initializes the OmniLadle spoon
@@ -38,21 +67,12 @@ obj.clientType = nil
 ---  * The OmniLadle object
 function obj:init()
     self.logger.i("Initializing OmniLadle spoon - The mystical ladle awakens...")
-
-    -- Load configuration from secrets or defaults
-    local secrets = require("load_secrets")
-    if secrets then
-        self.config.serverUrl = secrets.get("MCP_SERVER_URL", "http://localhost:8000")
-        self.config.timeout = tonumber(secrets.get("MCP_TIMEOUT", "30"))
-        self.config.clientMode = secrets.get("MCP_CLIENT_MODE", "sse")
-
-        self.logger.i("OmniLadle configured with server: " ..
-            self.config.serverUrl .. " (mode: " .. self.config.clientMode .. ")")
-    else
-        self.logger.w("Could not load secrets, using default configuration")
-        self.config.serverUrl = "http://localhost:8000"
-    end
-
+    local config = loadConfig()
+    self.config.serverUrl = config.serverUrl
+    self.config.timeout = config.timeout
+    self.config.clientMode = config.clientMode
+    self.logger.i("OmniLadle configured with server: " ..
+        self.config.serverUrl .. " (mode: " .. self.config.clientMode .. ")")
     self.isInitialized = true
     return self
 end
