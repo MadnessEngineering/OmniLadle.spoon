@@ -47,7 +47,7 @@ function obj:init()
         self.config.clientMode = secrets.get("MCP_CLIENT_MODE", "sse")
 
         self.logger.i("OmniLadle configured with server: " ..
-        self.config.serverUrl .. " (mode: " .. self.config.clientMode .. ")")
+            self.config.serverUrl .. " (mode: " .. self.config.clientMode .. ")")
     else
         self.logger.w("Could not load secrets, using default configuration")
         self.config.serverUrl = "http://localhost:8000"
@@ -209,8 +209,9 @@ end
 function obj:_initializeSSEClient()
     self.logger.d("Loading SSE client for real-time ladling")
 
+    local spoonPath = hs.spoons.resourcePath("OmniLadle")
     local success, MCPClientSSE = pcall(function()
-        return require('MCPClientSSE')
+        return dofile(spoonPath .. "/MCPClientSSE.lua")
     end)
 
     if not success then
@@ -244,8 +245,9 @@ end
 function obj:_initializeHTTPClient()
     self.logger.d("Loading HTTP client for traditional ladling")
 
+    local spoonPath = hs.spoons.resourcePath("OmniLadle")
     local success, MCPClient = pcall(function()
-        return require('MCPClient')
+        return dofile(spoonPath .. "/MCPClient.lua")
     end)
 
     if not success then
