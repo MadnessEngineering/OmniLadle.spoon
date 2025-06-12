@@ -209,7 +209,12 @@ end
 function obj:_initializeSSEClient()
     self.logger.d("Loading SSE client for real-time ladling")
 
+    -- Get the path to this spoon's directory
     local spoonPath = hs.spoons.resourcePath("OmniLadle")
+    -- If resource path doesn't work correctly, construct it manually
+    if not spoonPath or not hs.fs.attributes(spoonPath .. "/MCPClientSSE.lua") then
+        spoonPath = os.getenv("HOME") .. "/.hammerspoon/Spoons/OmniLadle.spoon"
+    end
     local success, MCPClientSSE = pcall(function()
         return dofile(spoonPath .. "/MCPClientSSE.lua")
     end)
@@ -245,7 +250,12 @@ end
 function obj:_initializeHTTPClient()
     self.logger.d("Loading HTTP client for traditional ladling")
 
+    -- Get the path to this spoon's directory
     local spoonPath = hs.spoons.resourcePath("OmniLadle")
+    -- If resource path doesn't work correctly, construct it manually
+    if not spoonPath or not hs.fs.attributes(spoonPath .. "/MCPClient.lua") then
+        spoonPath = os.getenv("HOME") .. "/.hammerspoon/Spoons/OmniLadle.spoon"
+    end
     local success, MCPClient = pcall(function()
         return dofile(spoonPath .. "/MCPClient.lua")
     end)
