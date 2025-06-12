@@ -1,0 +1,348 @@
+[
+  {
+    "Constant" : [
+
+    ],
+    "submodules" : [
+
+    ],
+    "Function" : [
+
+    ],
+    "Variable" : [
+
+    ],
+    "stripped_doc" : [
+
+    ],
+    "desc" : "OmniLadle - MCP client spoon for connecting to Omnispindle server\n\nThe mystical ladle that serves up fresh data from the Omnispindle's depths, providing seamless integration with the centralized project management system. Supports both HTTP and SSE (Server-Sent Events) modes for real-time updates.\n\nFeatures:\n- Real-time project updates via SSE\n- Fallback HTTP mode support\n- Automatic connection management\n- Rich logging with mystical flair\n- Integration with Hammerspoon's secrets system",
+    "Deprecated" : [
+
+    ],
+    "type" : "Module",
+    "Constructor" : [
+
+    ],
+    "doc" : "OmniLadle - MCP client spoon for connecting to Omnispindle server\n\nThe mystical ladle that serves up fresh data from the Omnispindle's depths, providing seamless integration with the centralized project management system. Supports both HTTP and SSE (Server-Sent Events) modes for real-time updates.\n\nFeatures:\n- Real-time project updates via SSE\n- Fallback HTTP mode support\n- Automatic connection management\n- Rich logging with mystical flair\n- Integration with Hammerspoon's secrets system",
+    "items" : [
+      {
+        "def" : "OmniLadle:init()",
+        "stripped_doc" : [
+          "Initializes the OmniLadle spoon",
+          "",
+          "Parameters:",
+          " * None",
+          "",
+          "Returns:",
+          " * The OmniLadle object"
+        ],
+        "desc" : "Initializes the OmniLadle spoon",
+        "notes" : [
+
+        ],
+        "signature" : "OmniLadle:init()",
+        "type" : "Method",
+        "returns" : [
+          " * The OmniLadle object"
+        ],
+        "doc" : "Initializes the OmniLadle spoon\n\nParameters:\n * None\n\nReturns:\n * The OmniLadle object",
+        "parameters" : [
+          " * None"
+        ],
+        "name" : "init"
+      },
+      {
+        "def" : "OmniLadle:start()",
+        "stripped_doc" : [
+          "Starts the OmniLadle spoon and initializes MCP client",
+          "",
+          "Parameters:",
+          " * None",
+          "",
+          "Returns:",
+          " * True if started successfully, false otherwise"
+        ],
+        "desc" : "Starts the OmniLadle spoon and initializes MCP client",
+        "notes" : [
+
+        ],
+        "signature" : "OmniLadle:start()",
+        "type" : "Method",
+        "returns" : [
+          " * True if started successfully, false otherwise"
+        ],
+        "doc" : "Starts the OmniLadle spoon and initializes MCP client\n\nParameters:\n * None\n\nReturns:\n * True if started successfully, false otherwise",
+        "parameters" : [
+          " * None"
+        ],
+        "name" : "start"
+      },
+      {
+        "def" : "OmniLadle:stop()",
+        "stripped_doc" : [
+          "Stops the OmniLadle spoon and cleans up resources",
+          "",
+          "Parameters:",
+          " * None",
+          "",
+          "Returns:",
+          " * The OmniLadle object"
+        ],
+        "desc" : "Stops the OmniLadle spoon and cleans up resources",
+        "notes" : [
+
+        ],
+        "signature" : "OmniLadle:stop()",
+        "type" : "Method",
+        "returns" : [
+          " * The OmniLadle object"
+        ],
+        "doc" : "Stops the OmniLadle spoon and cleans up resources\n\nParameters:\n * None\n\nReturns:\n * The OmniLadle object",
+        "parameters" : [
+          " * None"
+        ],
+        "name" : "stop"
+      },
+      {
+        "def" : "OmniLadle:getProjectsList(forceRefresh)",
+        "stripped_doc" : [
+          "Ladles up a fresh serving of projects from the Omnispindle",
+          "",
+          "Parameters:",
+          " * forceRefresh - Optional boolean to force refresh from server",
+          "",
+          "Returns:",
+          " * Table of projects, or nil if failed"
+        ],
+        "desc" : "Ladles up a fresh serving of projects from the Omnispindle",
+        "notes" : [
+
+        ],
+        "signature" : "OmniLadle:getProjectsList(forceRefresh)",
+        "type" : "Method",
+        "returns" : [
+          " * Table of projects, or nil if failed"
+        ],
+        "doc" : "Ladles up a fresh serving of projects from the Omnispindle\n\nParameters:\n * forceRefresh - Optional boolean to force refresh from server\n\nReturns:\n * Table of projects, or nil if failed",
+        "parameters" : [
+          " * forceRefresh - Optional boolean to force refresh from server"
+        ],
+        "name" : "getProjectsList"
+      },
+      {
+        "def" : "OmniLadle:testConnection()",
+        "stripped_doc" : [
+          "Tests the connection to the Omnispindle server",
+          "",
+          "Parameters:",
+          " * None",
+          "",
+          "Returns:",
+          " * True if connected, false otherwise"
+        ],
+        "desc" : "Tests the connection to the Omnispindle server",
+        "notes" : [
+
+        ],
+        "signature" : "OmniLadle:testConnection()",
+        "type" : "Method",
+        "returns" : [
+          " * True if connected, false otherwise"
+        ],
+        "doc" : "Tests the connection to the Omnispindle server\n\nParameters:\n * None\n\nReturns:\n * True if connected, false otherwise",
+        "parameters" : [
+          " * None"
+        ],
+        "name" : "testConnection"
+      },
+      {
+        "def" : "OmniLadle:getConnectionStatus()",
+        "stripped_doc" : [
+          "Gets detailed connection status information",
+          "",
+          "Parameters:",
+          " * None",
+          "",
+          "Returns:",
+          " * Table with connection status details"
+        ],
+        "desc" : "Gets detailed connection status information",
+        "notes" : [
+
+        ],
+        "signature" : "OmniLadle:getConnectionStatus()",
+        "type" : "Method",
+        "returns" : [
+          " * Table with connection status details"
+        ],
+        "doc" : "Gets detailed connection status information\n\nParameters:\n * None\n\nReturns:\n * Table with connection status details",
+        "parameters" : [
+          " * None"
+        ],
+        "name" : "getConnectionStatus"
+      }
+    ],
+    "Method" : [
+      {
+        "def" : "OmniLadle:init()",
+        "stripped_doc" : [
+          "Initializes the OmniLadle spoon",
+          "",
+          "Parameters:",
+          " * None",
+          "",
+          "Returns:",
+          " * The OmniLadle object"
+        ],
+        "desc" : "Initializes the OmniLadle spoon",
+        "notes" : [
+
+        ],
+        "signature" : "OmniLadle:init()",
+        "type" : "Method",
+        "returns" : [
+          " * The OmniLadle object"
+        ],
+        "doc" : "Initializes the OmniLadle spoon\n\nParameters:\n * None\n\nReturns:\n * The OmniLadle object",
+        "parameters" : [
+          " * None"
+        ],
+        "name" : "init"
+      },
+      {
+        "def" : "OmniLadle:start()",
+        "stripped_doc" : [
+          "Starts the OmniLadle spoon and initializes MCP client",
+          "",
+          "Parameters:",
+          " * None",
+          "",
+          "Returns:",
+          " * True if started successfully, false otherwise"
+        ],
+        "desc" : "Starts the OmniLadle spoon and initializes MCP client",
+        "notes" : [
+
+        ],
+        "signature" : "OmniLadle:start()",
+        "type" : "Method",
+        "returns" : [
+          " * True if started successfully, false otherwise"
+        ],
+        "doc" : "Starts the OmniLadle spoon and initializes MCP client\n\nParameters:\n * None\n\nReturns:\n * True if started successfully, false otherwise",
+        "parameters" : [
+          " * None"
+        ],
+        "name" : "start"
+      },
+      {
+        "def" : "OmniLadle:stop()",
+        "stripped_doc" : [
+          "Stops the OmniLadle spoon and cleans up resources",
+          "",
+          "Parameters:",
+          " * None",
+          "",
+          "Returns:",
+          " * The OmniLadle object"
+        ],
+        "desc" : "Stops the OmniLadle spoon and cleans up resources",
+        "notes" : [
+
+        ],
+        "signature" : "OmniLadle:stop()",
+        "type" : "Method",
+        "returns" : [
+          " * The OmniLadle object"
+        ],
+        "doc" : "Stops the OmniLadle spoon and cleans up resources\n\nParameters:\n * None\n\nReturns:\n * The OmniLadle object",
+        "parameters" : [
+          " * None"
+        ],
+        "name" : "stop"
+      },
+      {
+        "def" : "OmniLadle:getProjectsList(forceRefresh)",
+        "stripped_doc" : [
+          "Ladles up a fresh serving of projects from the Omnispindle",
+          "",
+          "Parameters:",
+          " * forceRefresh - Optional boolean to force refresh from server",
+          "",
+          "Returns:",
+          " * Table of projects, or nil if failed"
+        ],
+        "desc" : "Ladles up a fresh serving of projects from the Omnispindle",
+        "notes" : [
+
+        ],
+        "signature" : "OmniLadle:getProjectsList(forceRefresh)",
+        "type" : "Method",
+        "returns" : [
+          " * Table of projects, or nil if failed"
+        ],
+        "doc" : "Ladles up a fresh serving of projects from the Omnispindle\n\nParameters:\n * forceRefresh - Optional boolean to force refresh from server\n\nReturns:\n * Table of projects, or nil if failed",
+        "parameters" : [
+          " * forceRefresh - Optional boolean to force refresh from server"
+        ],
+        "name" : "getProjectsList"
+      },
+      {
+        "def" : "OmniLadle:testConnection()",
+        "stripped_doc" : [
+          "Tests the connection to the Omnispindle server",
+          "",
+          "Parameters:",
+          " * None",
+          "",
+          "Returns:",
+          " * True if connected, false otherwise"
+        ],
+        "desc" : "Tests the connection to the Omnispindle server",
+        "notes" : [
+
+        ],
+        "signature" : "OmniLadle:testConnection()",
+        "type" : "Method",
+        "returns" : [
+          " * True if connected, false otherwise"
+        ],
+        "doc" : "Tests the connection to the Omnispindle server\n\nParameters:\n * None\n\nReturns:\n * True if connected, false otherwise",
+        "parameters" : [
+          " * None"
+        ],
+        "name" : "testConnection"
+      },
+      {
+        "def" : "OmniLadle:getConnectionStatus()",
+        "stripped_doc" : [
+          "Gets detailed connection status information",
+          "",
+          "Parameters:",
+          " * None",
+          "",
+          "Returns:",
+          " * Table with connection status details"
+        ],
+        "desc" : "Gets detailed connection status information",
+        "notes" : [
+
+        ],
+        "signature" : "OmniLadle:getConnectionStatus()",
+        "type" : "Method",
+        "returns" : [
+          " * Table with connection status details"
+        ],
+        "doc" : "Gets detailed connection status information\n\nParameters:\n * None\n\nReturns:\n * Table with connection status details",
+        "parameters" : [
+          " * None"
+        ],
+        "name" : "getConnectionStatus"
+      }
+    ],
+    "Field" : [
+
+    ],
+    "name" : "OmniLadle"
+  }
+] 
