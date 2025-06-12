@@ -1,8 +1,7 @@
 -- MCPClient.lua - HTTP client for communicating with MCP servers
 -- Provides centralized project management by calling Omnispindle MCP server
 
-local HyperLogger = require('HyperLogger')
-local log = HyperLogger.new()
+local log = nil
 
 -- Check if module is already initialized
 if _G.MCPClient then
@@ -23,8 +22,12 @@ local MCPClient = {
     cacheTimeout = 300 -- 5 minutes cache
 }
 
+function MCPClient.setLogger(customLogger)
+    log = customLogger or hs.logger.new('MCPClient')
+end
 -- Initialize MCP client with configuration
 function MCPClient.init(config)
+    if not log then log = hs.logger.new('MCPClient') end
     log:d('Initializing MCP client with config')
     config = config or {}
 
