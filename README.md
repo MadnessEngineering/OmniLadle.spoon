@@ -27,9 +27,15 @@ git clone https://github.com/madness-interactive/OmniLadle.spoon.git
 1. Download the spoon files
 2. Place in `~/.hammerspoon/Spoons/OmniLadle.spoon/`
 
-## Configuration
+### Configuration
 
-Add your Omnispindle server configuration to your `~/.hammerspoon/.secrets` file:
+1. Copy the example secrets file:
+
+   ```bash
+   cp ~/.hammerspoon/Spoons/OmniLadle.spoon/.secrets.example ~/.hammerspoon/.secrets
+   ```
+
+2. Edit `~/.hammerspoon/.secrets` to match your Omnispindle server settings.
 
 ```bash
 # Omnispindle MCP Server Configuration
